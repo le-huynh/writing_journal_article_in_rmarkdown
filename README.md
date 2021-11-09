@@ -1,5 +1,5 @@
 
-## Lehuynh's personal notes`
+## Lehuynh's personal notes
 
 #### lastname_project_journal_year
 
@@ -8,7 +8,7 @@ This repo includes data, code, results of data analysis, and documents related t
 ### Overview
 
 	project
-	|- README.md       # the top level description of content (this doc)
+	|- README.md	   # the top level description of content (this doc)
 	|
 	|- elsevier/	   # for Elsevier journals
 	| |- manuscript.Rmd    # executable Rmarkdown for this study
@@ -20,7 +20,7 @@ This repo includes data, code, results of data analysis, and documents related t
 	| |- XXXX.csl          # csl file to format references for journal XXX
 	| +- other files       # used to export .Rmd file to .pdf file
 	|
-	|- springer/	# template for Springer journals, from `rticles` package
+	|- springer/	   # template for Springer journals, from `rticles` package
 	|
 	|- data           # raw and primary data, are not changed once created
 	| |- raw/         # raw data, will not be altered
