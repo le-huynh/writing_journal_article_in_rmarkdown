@@ -1,0 +1,386 @@
+\documentclass[]{elsarticle} %review=doublespace preprint=single 5p=2 column
+%%% Begin My package additions %%%%%%%%%%%%%%%%%%%
+\usepackage[hyphens]{url}
+
+  \journal{An awesome journal} % Sets Journal name
+
+
+\usepackage{lineno} % add
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%% end my additions to header
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \usepackage{fontspec}
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\bibliographystyle{elsarticle-harv}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Article Name},
+            colorlinks=true,
+            urlcolor=blue,
+            linkcolor=blue,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+\setcounter{secnumdepth}{5}
+% Pandoc toggle for numbering sections (defaults to be off)
+
+% Pandoc citation processing
+
+% Pandoc header
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+\usepackage{setspace}\doublespacing
+\usepackage{lineno}\linenumbers
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+
+
+\begin{document}
+\begin{frontmatter}
+
+  \title{Article Name}
+    \author[Some Institute of Technology]{Alice Anonymous\corref{1}}
+   \ead{alice@example.com} 
+    \author[Another University]{Bob Security}
+   \ead{bob@example.com} 
+    \author[Another University]{Cat Memes\corref{2}}
+   \ead{cat@example.com} 
+    \author[Some Institute of Technology]{Derek Zoolander\corref{2}}
+   \ead{derek@example.com} 
+      \address[Some Institute of Technology]{Department, Street, City, State, Zip}
+    \address[Another University]{Department, Street, City, State, Zip}
+      \cortext[1]{Corresponding Author}
+    \cortext[2]{Equal contribution}
+  
+  \begin{abstract}
+  This is the abstract.\\
+  1. what is the study about?\\
+  2. what problem does it address?\\
+  3. how did you conduct the research?\\
+  4. what were the main findings?\\
+  5. why is it important?
+  \end{abstract}
+   \begin{keyword} keywordA, keywordB\end{keyword}
+ \end{frontmatter}
+
+\section{Introduction}\label{intro}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  general information
+\item
+  research gap
+\item
+  research aim
+\end{enumerate}
+
+\section{Materials and methods}\label{method}
+
+\subsection{Adding figures}\label{figure}
+
+Add Fig. \ref{fig:boxplot} here.
+
+\begin{figure}
+
+{\centering \includegraphics[height=0.5\textheight]{C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results/figures/boxplot} 
+
+}
+
+\caption{A boxplot}\label{fig:boxplot}
+\end{figure}
+
+If the caption is too long (fig.\ref{fig:2021}), use the
+\href{https://bookdown.org/yihui/rmarkdown/bookdown-markdown.html\#text-references}{text-reference}.
+See the code in ``elsevier/manuscript.Rmd'' for more information.
+
+
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results/pictures/2021} 
+
+}
+
+\caption{This is a very long caption}\label{fig:2021}
+\end{figure}
+
+\subsection{Adding tables}\label{table}
+
+\begin{longtable}[]{@{}cll@{}}
+\caption{\label{tab:unnamed-chunk-2}\label{tab:cooltable}Mean and
+Median}\tabularnewline
+\toprule
+Supplement type & Median & Mean\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Supplement type & Median & Mean\tabularnewline
+\midrule
+\endhead
+OJ & 22.7 & 20.66333\tabularnewline
+VC & 16.5 & 16.96333\tabularnewline
+\bottomrule
+\end{longtable}
+
+\subsection{Adding equation}\label{equation}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The \emph{variable} \(x\) and the \textbf{function} \(f(x)\)
+\item
+  The \emph{variable} \(x\) and the \textbf{function} \(f(x)\)
+\item
+  superscript\textsuperscript{2}
+\item
+  NO\textsubscript{2}, NO\textsubscript{3}, PO\textsubscript{4},
+  NH\textsubscript{4}
+\end{enumerate}
+
+\[Y|X \sim Bernoulli(p)\]
+
+or
+
+\begin{equation}
+\label{eq:cutoff}
+p(x) = P(Y = 1|X = x) = 
+\left\{
+    \begin{array}{lr}
+          p_1 = P(Y = 1|X \le cp), & \text{if } x \le cp\\
+          p_2 = P(Y = 1|X > cp), & \text{if } x > cp
+    \end{array}
+\right.
+\end{equation}
+
+\subsection{Cross-reference}\label{cross-reference}
+
+\begin{itemize}
+\tightlist
+\item
+  figure: \texttt{\textbackslash{}ref\{fig:label\}}
+\item
+  table: \texttt{\textbackslash{}ref\{tab:label\}}
+\item
+  equation: \texttt{\textbackslash{}ref\{eq:label\}}
+\item
+  section: \texttt{\textbackslash{}ref\{label\}}
+\end{itemize}
+
+\textbf{Note:} only alphanumeric characters (\texttt{a-z}, \texttt{A-Z},
+\texttt{0-9}), \texttt{-}, \texttt{/}, and \texttt{:} are allowed in
+labels.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Fig.\ref{fig:boxplot} and fig.\ref{fig:2021}
+\item
+  Table. \ref{tab:cooltable}
+\item
+  Equation \ref{eq:cutoff}
+\item
+  Section \ref{intro} and section \ref{figure}
+\end{enumerate}
+
+\subsection{Citation syntax}\label{citation-syntax}
+
+\begin{itemize}
+\tightlist
+\item
+  cite directly Davis et al. (2009)
+\item
+  put citations in parentheses (Walls et al., 2018)
+\item
+  cite multiple entries (Davis et al., 2009; Walls et al., 2018)
+\item
+  suppress the mention of the author (2011)
+\end{itemize}
+
+\section{Results and discussion}\label{result}
+
+\subsection{Use code inline}\label{use-code-inline}
+
+The maximum tooth length is 33.9.
+
+\subsection{Random things}\label{random-things}
+
+\begin{itemize}
+\tightlist
+\item
+  download \texttt{.csl} file at
+  \href{https://www.zotero.org/styles}{Zotero Style Repository}
+\item
+  \emph{References} section is created at the end of the document by
+  default. To put \emph{References} section in a specific place
+  (e.g.~before Supplementary Materials):
+\end{itemize}
+
+\begin{verbatim}
+# References
+<div id="refs"></div>
+# Supplementary Materials
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  check spelling in rmarkdown: \texttt{F7}
+\item
+  \href{https://github.com/benmarwick/wordcountaddin}{word count addin}
+\end{itemize}
+
+\section{Conclusions}\label{conclusion}
+
+\section*{CRediT authorship contribution statement}\label{authorship}
+\addcontentsline{toc}{section}{CRediT authorship contribution statement}
+
+\section*{Data availability}\label{datasharing}
+\addcontentsline{toc}{section}{Data availability}
+
+\section*{Declaration of competing interest}\label{declaration}
+\addcontentsline{toc}{section}{Declaration of competing interest}
+
+The authors declare that they have no known competing financial
+interests or personal relationships that could have appeared to
+influence the work reported in this paper.
+
+\section*{Acknowledgements}\label{thanks}
+\addcontentsline{toc}{section}{Acknowledgements}
+
+\section*{Supplementary materials}\label{appendix}
+\addcontentsline{toc}{section}{Supplementary materials}
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\setcounter{figure}{0} \renewcommand{\thetable}{S\arabic{table}}
+\setcounter{table}{0} \renewcommand{\theequation}{S\arabic{equation}}
+\setcounter{equation}{0}
+
+Fig.\ref{fig:s2021} is in Supplementary materials.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results/pictures/2021} 
+
+}
+
+\caption{A plot in Supplementary Materials}\label{fig:s2021}
+\end{figure}
+
+Table.\ref{tab:stable} is in Supplementary materials.
+
+\begin{longtable}[]{@{}cll@{}}
+\caption{\label{tab:unnamed-chunk-4}\label{tab:stable}This table
+again}\tabularnewline
+\toprule
+Supplement type & Median & Mean\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Supplement type & Median & Mean\tabularnewline
+\midrule
+\endhead
+OJ & 22.7 & 20.66333\tabularnewline
+VC & 16.5 & 16.96333\tabularnewline
+\bottomrule
+\end{longtable}
+
+Some random SAS code
+
+\begin{verbatim}
+PROC MCMC 
+    data=Data outpost=Dataoutput 
+        nbi=1000000 
+        nmc=1000000
+        thin=10
+        seed=1
+        diag=all
+        monitor=(p1 p2 cp I w); 
+\end{verbatim}
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\hypertarget{ref-Davis2009}{}
+Davis, T.W., Berry, D.L., Boyer, G.L., Gobler, C.J., 2009. The effects
+of temperature and nutrients on the growth and dynamics of toxic and
+non-toxic strains of Microcystis during cyanobacteria blooms. Harmful
+Algae 8, 715--725. \url{https://doi.org/10.1016/j.hal.2009.02.004}
+
+\hypertarget{ref-Liu2011a}{}
+Liu, X., Lu, X., Chen, Y., 2011. The effects of temperature and nutrient
+ratios on Microcystis blooms in Lake Taihu, China: An 11-year
+investigation. Harmful Algae 10, 337--343.
+\url{https://doi.org/10.1016/j.hal.2010.12.002}
+
+\hypertarget{ref-Walls2018}{}
+Walls, J.T., Wyatt, K.H., Doll, J.C., Rubenstein, E.M., Rober, A.R.,
+2018. Hot and toxic: Temperature regulates microcystin release from
+cyanobacteria. Science of the Total Environment 610-611, 786--795.
+\url{https://doi.org/10.1016/j.scitotenv.2017.08.149}
+
+
+\end{document}
+

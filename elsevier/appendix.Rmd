@@ -1,0 +1,41 @@
+---
+output: pdf_document
+---
+\renewcommand{\thefigure}{S\arabic{figure}}
+\setcounter{figure}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+\setcounter{table}{0}
+\renewcommand{\theequation}{S\arabic{equation}}
+\setcounter{equation}{0}
+
+Fig.\ref{fig:s2021} is in Supplementary materials.
+```{r s2021, echo=FALSE, fig.cap='A plot in Supplementary Materials', out.width="80%", fig.align='center'}
+knitr::include_graphics(here::here("results", "pictures", "2021.png"))
+```
+
+Table.\ref{tab:stable} is in Supplementary materials.
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+data %>% 
+          group_by(supp) %>%
+          summarise(median = median(len),
+                    mean = mean(len)) %>% 
+	kable("simple",
+	      booktabs = T,
+	      col.names = c("Supplement type", 
+	      	    	"Median",
+	      	    	"Mean"), 
+	      align = "cll",
+	      caption = "\\label{tab:stable}This table again")
+```
+
+Some random SAS code  
+```
+PROC MCMC 
+	data=Data outpost=Dataoutput 
+		nbi=1000000 
+		nmc=1000000
+		thin=10
+		seed=1
+		diag=all
+		monitor=(p1 p2 cp I w); 
+```
