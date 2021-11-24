@@ -44,4 +44,6 @@ This repo includes data, code, results of data analysis, and documents related t
 - See `/elsevier/manuscript.Rmd` and `/elsevier/manuscript.pdf` for notes of rmarkdown  
 - R package: [lehuynh](https://github.com/le-huynh/lehuynh)
 
+----------------------------------------
+- R packages: `patchwork`, `prettydoc`, `xaringan`
 
