@@ -61,9 +61,15 @@ data/process/newdata.csv
 elsevier/manuscript.pdf: \
 elsevier/manuscript.Rmd\
 elsevier/appendix.Rmd\
+elsevier/credit.Rmd\
+elsevier/highlight.Rmd\
+elsevier/interest.Rmd\
+elsevier/thanks.Rmd\
+elsevier/cover_letter.Rmd\
+elsevier/response_to_reviewers.Rmd\
 data/process/newdata.csv\
 results/figures/boxplot.pdf\
 results/pictures/2021.png\
 elsevier/harmful-algae.csl\
 elsevier/bibliography.bib
-	Rscript -e 'rmarkdown::render("$<")'
+	Rscript -e 'rmarkdown::render("$<", output_format = "all")'

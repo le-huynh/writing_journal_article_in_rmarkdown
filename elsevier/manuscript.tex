@@ -1,4 +1,4 @@
-\documentclass[]{elsarticle} %review=doublespace preprint=single 5p=2 column
+\documentclass[review]{elsarticle} %review=doublespace preprint=single 5p=2 column
 %%% Begin My package additions %%%%%%%%%%%%%%%%%%%
 \usepackage[hyphens]{url}
 
@@ -65,6 +65,7 @@
 % Pandoc citation processing
 
 % Pandoc header
+%fix position of table, figure
 \usepackage{float}
 \let\origfigure\figure
 \let\endorigfigure\endfigure
@@ -73,8 +74,6 @@
 } {
     \endorigfigure
 }
-\usepackage{setspace}\doublespacing
-\usepackage{lineno}\linenumbers
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -96,18 +95,22 @@
 \begin{frontmatter}
 
   \title{Article Name}
-    \author[Some Institute of Technology]{Alice Anonymous\corref{1}}
-   \ead{alice@example.com} 
-    \author[Another University]{Bob Security}
-   \ead{bob@example.com} 
-    \author[Another University]{Cat Memes\corref{2}}
-   \ead{cat@example.com} 
-    \author[Some Institute of Technology]{Derek Zoolander\corref{2}}
-   \ead{derek@example.com} 
-      \address[Some Institute of Technology]{Department, Street, City, State, Zip}
-    \address[Another University]{Department, Street, City, State, Zip}
+    \author[a,1]{Author One}
+   \ead{one@example.com} 
+    \author[a,b]{Author Two\corref{1}}
+   \ead{two@example.com} 
+    \author[c]{Author Three\corref{2}}
+   \ead{three@example.com} 
+    \author[a]{Author Four\corref{2}}
+   \ead{four@example.com} 
+      \address[a]{Graduate School of Engineering, Nagasaki University, 1-14 Bunkyo-machi,
+Nagasaki 852-8521, Japan}
+    \address[b]{Department, University, Street, City, State, Zip}
+    \address[c]{Department, University, Street, City, State, Zip}
       \cortext[1]{Corresponding Author}
     \cortext[2]{Equal contribution}
+    \cortext[]{\textsuperscript{1}Present address: Department, University, Street,
+City, State, Zip}
   
   \begin{abstract}
   This is the abstract.\\
@@ -119,6 +122,8 @@
   \end{abstract}
    \begin{keyword} keywordA, keywordB\end{keyword}
  \end{frontmatter}
+
+\newpage
 
 \section{Introduction}\label{intro}
 
@@ -257,7 +262,7 @@ labels.
   suppress the mention of the author (2011)
 \end{itemize}
 
-\section{Results and discussion}\label{result}
+\section{Results}\label{result}
 
 \subsection{Use code inline}\label{use-code-inline}
 
@@ -290,74 +295,38 @@ The maximum tooth length is 33.9.
   \href{https://github.com/benmarwick/wordcountaddin}{word count addin}
 \end{itemize}
 
+\section{Discussion}\label{discussion}
+
 \section{Conclusions}\label{conclusion}
 
-\section*{CRediT authorship contribution statement}\label{authorship}
-\addcontentsline{toc}{section}{CRediT authorship contribution statement}
+\newpage
 
-\section*{Data availability}\label{datasharing}
-\addcontentsline{toc}{section}{Data availability}
-
-\section*{Declaration of competing interest}\label{declaration}
+\section*{Declaration of competing interest}\label{interest}
 \addcontentsline{toc}{section}{Declaration of competing interest}
 
 The authors declare that they have no known competing financial
 interests or personal relationships that could have appeared to
 influence the work reported in this paper.
 
+\section*{CRediT authorship contribution statement}\label{credit}
+\addcontentsline{toc}{section}{CRediT authorship contribution statement}
+
+\textbf{Author One:} Conceptualization, Methodology, Investigation, Data
+curation, Formal analysis, Visualization, Writing - Original Draft,
+Writing - review \& editing. \textbf{Author Two:} Supervision, Project
+administration, Funding acquisition, Conceptualization, Resources,
+Writing - Review \& Editing. \textbf{Author Three, Author Four:}
+Investigation.
+
+Further information
+\href{https://www.elsevier.com/authors/policies-and-guidelines/credit-author-statement}{here}.
+
 \section*{Acknowledgements}\label{thanks}
 \addcontentsline{toc}{section}{Acknowledgements}
 
-\section*{Supplementary materials}\label{appendix}
-\addcontentsline{toc}{section}{Supplementary materials}
+This work was supported by \ldots{}
 
-\renewcommand{\thefigure}{S\arabic{figure}}
-
-\setcounter{figure}{0} \renewcommand{\thetable}{S\arabic{table}}
-\setcounter{table}{0} \renewcommand{\theequation}{S\arabic{equation}}
-\setcounter{equation}{0}
-
-Fig.\ref{fig:s2021} is in Supplementary materials.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results/pictures/2021} 
-
-}
-
-\caption{A plot in Supplementary Materials}\label{fig:s2021}
-\end{figure}
-
-Table.\ref{tab:stable} is in Supplementary materials.
-
-\begin{longtable}[]{@{}cll@{}}
-\caption{\label{tab:unnamed-chunk-4}\label{tab:stable}This table
-again}\tabularnewline
-\toprule
-Supplement type & Median & Mean\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-Supplement type & Median & Mean\tabularnewline
-\midrule
-\endhead
-OJ & 22.7 & 20.66333\tabularnewline
-VC & 16.5 & 16.96333\tabularnewline
-\bottomrule
-\end{longtable}
-
-Some random SAS code
-
-\begin{verbatim}
-PROC MCMC 
-    data=Data outpost=Dataoutput 
-        nbi=1000000 
-        nmc=1000000
-        thin=10
-        seed=1
-        diag=all
-        monitor=(p1 p2 cp I w); 
-\end{verbatim}
+\newpage
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
@@ -380,6 +349,156 @@ Walls, J.T., Wyatt, K.H., Doll, J.C., Rubenstein, E.M., Rober, A.R.,
 2018. Hot and toxic: Temperature regulates microcystin release from
 cyanobacteria. Science of the Total Environment 610-611, 786--795.
 \url{https://doi.org/10.1016/j.scitotenv.2017.08.149}
+
+\newpage
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\setcounter{figure}{0} \renewcommand{\thetable}{S\arabic{table}}
+\setcounter{table}{0} \renewcommand{\theequation}{S\arabic{equation}}
+\setcounter{equation}{0}
+
+\section*{Supplementary materials}\label{appendix}
+\addcontentsline{toc}{section}{Supplementary materials}
+
+Fig.\ref{fig:s2021} is in Supplementary materials.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results/pictures/2021} 
+
+}
+
+\caption{A plot in Supplementary Materials}\label{fig:s2021}
+\end{figure}
+
+Table.\ref{tab:stable} is in Supplementary materials.
+
+\begin{longtable}[]{@{}cll@{}}
+\caption{\label{tab:unnamed-chunk-11}\label{tab:stable}This table
+again}\tabularnewline
+\toprule
+Supplement type & Median & Mean\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Supplement type & Median & Mean\tabularnewline
+\midrule
+\endhead
+OJ & 22.7 & 20.663\tabularnewline
+VC & 16.5 & 16.963\tabularnewline
+\bottomrule
+\end{longtable}
+
+Some random SAS code
+
+\begin{verbatim}
+PROC MCMC 
+    data=Data outpost=Dataoutput 
+        nbi=1000000 
+        nmc=1000000
+        thin=10
+        seed=1
+        diag=all
+        monitor=(p1 p2 cp I w); 
+\end{verbatim}
+
+\newpage
+
+\section*{Highlights}\label{highlight}
+\addcontentsline{toc}{section}{Highlights}
+
+Short collection of bullet points: novel results + new methods\\
+- submitted: separate editable file -\textgreater{} online submission
+system.\\
+- file name: `Highlights'\\
+- 3 to 5 bullet points (maximum 85 characters, including spaces, per
+bullet point)
+
+\section*{Graphical abstract}\label{graphic}
+\addcontentsline{toc}{section}{Graphical abstract}
+
+Delete \texttt{eval=FALSE} before run the code chunk
+
+\newpage
+
+\section*{Cover letter}\label{cover-letter}
+\addcontentsline{toc}{section}{Cover letter}
+
+\subsubsection*{New submission}\label{new-submission}
+\addcontentsline{toc}{subsubsection}{New submission}
+
+Month Day, Year
+
+Dear Dr.~AAA,
+
+I am happy to submit my manuscript, \textbf{article\_name}, for your
+consideration at \emph{journal\_name}. This work \emph{do sth
+interesting}. The main conclusion is that \emph{sth cool}.
+
+All of the authors have read and approved the paper and it has not been
+published previously nor is it being considered by any other
+peer-reviewed journal.
+
+The manuscript has also been submitted to bioRxiv as a preprint.
+
+Sincerely,
+
+Author\_name, PhD\\
+Professor
+
+\subsubsection*{Resubmissions}\label{resubmissions}
+\addcontentsline{toc}{subsubsection}{Resubmissions}
+
+Month Day, Year
+
+Dear Dr.~BBB,
+
+I am happy to resubmit my manuscript, \textbf{article\_name}, for your
+reconsideration at \emph{journal\_name}. I am grateful to you and the
+reviewers who were very encouraging about the content of the
+manuscript.\\
+I apologize for taking so long to resubmit.\\
+Too many things got in the way over the past few months.
+
+All of the authors have read and approved the paper and it has not been
+published previously nor is it being considered by any other
+peer-reviewed journal.
+
+The manuscript was previously submitted to bioRxiv as a preprint.
+
+Sincerely,
+
+Author\_name, PhD\\
+Professor
+
+\section*{Response to reviewers}\label{response-to-reviewers}
+\addcontentsline{toc}{section}{Response to reviewers}
+
+\subsubsection*{Reviewer \#1 (Comments for the
+Author):}\label{reviewer-1-comments-for-the-author}
+\addcontentsline{toc}{subsubsection}{Reviewer \#1 (Comments for the
+Author):}
+
+\textbf{copy the comment of the reviewer here}
+
+\begin{quote}
+We have revised the sentence to the following: ``sth you revised''
+\end{quote}
+
+\subsubsection*{Reviewer \#2 (Comments for the
+Author):}\label{reviewer-2-comments-for-the-author}
+\addcontentsline{toc}{subsubsection}{Reviewer \#2 (Comments for the
+Author):}
+
+\textbf{copy the comment of the reviewer here}
+
+\begin{quote}
+Your response here
+\end{quote}
+
+A great example
+\href{https://github.com/SchlossLab/Tomkovich_PEG3350_mSphere_2021/blob/master/submission/response_to_reviewers.md}{here}.
 
 
 \end{document}

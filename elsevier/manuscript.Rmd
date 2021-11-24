@@ -1,31 +1,34 @@
 ---
 title: Article Name
 author:
-  - name: Alice Anonymous
-    email: alice@example.com
-    affiliation: Some Institute of Technology
+  - name: Author One
+    email: one@example.com
+    affiliation: a,1
+  - name: Author Two
+    email: two@example.com
+    affiliation: a,b
     footnote: 1
-  - name: Bob Security
-    email: bob@example.com
-    affiliation: Another University
-  - name: Cat Memes
-    email: cat@example.com
-    affiliation: Another University
+  - name: Author Three
+    email: three@example.com
+    affiliation: c
     footnote: 2
-  - name: Derek Zoolander
-    email: derek@example.com
-    affiliation: Some Institute of Technology
+  - name: Author Four
+    email: four@example.com
+    affiliation: a
     footnote: 2
 address:
-  - code: Some Institute of Technology
-    address: Department, Street, City, State, Zip
-  - code: Another University
-    address: Department, Street, City, State, Zip
+  - code: a
+    address: Graduate School of Engineering, Nagasaki University, 1-14 Bunkyo-machi, Nagasaki 852-8521, Japan
+  - code: b
+    address: Department, University, Street, City, State, Zip
+  - code: c
+    address: Department, University, Street, City, State, Zip
 footnote:
   - code: 1
     text: "Corresponding Author"
   - code: 2
     text: "Equal contribution"
+  - text: "^1^Present address: Department, University, Street, City, State, Zip"
 abstract: |
   This is the abstract.  
   1. what is the study about?  
@@ -40,24 +43,31 @@ date: "`r Sys.Date()`"
 bibliography: bibliography.bib
 #linenumbers: true
 numbersections: true
-header-includes:
-    - \usepackage{setspace}\doublespacing
-    - \usepackage{lineno}\linenumbers
-csl: harmful-algae.csl
+layout: review      #review=doublespace, preprint=single, 5p=2column
+csl: harmful-algae.csl        #download .csl at www.zotero.org/styles
 output:
   bookdown::pdf_book:
     base_format: rticles::elsevier_article
     includes:  
       in_header: my_header.tex
+  bookdown::word_document2: default  # for cross-references
 linkcolor: blue
 ---
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-library(here)
-library(kableExtra)
-library(tidyverse)
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+library(here)
+library(tidyverse)
+library(kableExtra)
+```
+
+```{r}
 data <- read.csv(here("data", "process", "newdata.csv"))
 ```
+
+
+\newpage
 
 # Introduction {#intro}
 1. general information
@@ -68,7 +78,7 @@ data <- read.csv(here("data", "process", "newdata.csv"))
 ## Adding figures {#figure}
 Add Fig. \ref{fig:boxplot} here.  
 
-```{r boxplot, echo=FALSE, fig.cap='A boxplot', out.height="50%", fig.align='center'}
+```{r boxplot, fig.cap='A boxplot', out.height="50%", fig.align='center'}
 knitr::include_graphics(here::here("results", "figures", "boxplot.pdf"))
 ```
 
@@ -76,12 +86,12 @@ If the caption is too long (fig.\ref{fig:2021}), use the [text-reference](https:
 See the code in "elsevier/manuscript.Rmd" for more information.  
 
 (ref:longcaption) This is a very long caption
-```{r 2021, echo=FALSE, fig.cap='(ref:longcaption)', out.width="50%", fig.align='center'}
+```{r 2021, fig.cap='(ref:longcaption)', out.width="50%", fig.align='center'}
 knitr::include_graphics(here::here("results", "pictures", "2021.png"))
 ```
 
 ## Adding tables {#table}
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r}
 data %>% 
           group_by(supp) %>%
           summarise(median = median(len),
@@ -137,7 +147,10 @@ p(x) = P(Y = 1|X = x) =
 - cite multiple entries [@Davis2009; @Walls2018]
 - suppress the mention of the author [-@Liu2011a]
 
-# Results and discussion {#result}
+
+
+
+# Results {#result}
 ## Use code inline
 The maximum tooth length is `r max(data$len)`.
 
@@ -154,27 +167,56 @@ To put *References* section in a specific place (e.g. before Supplementary Mater
 - check spelling in rmarkdown: `F7`
 - [word count addin](https://github.com/benmarwick/wordcountaddin)
 
+
+# Discussion {#discussion}
+
+
 # Conclusions {#conclusion}
 
-# CRediT authorship contribution statement {#authorship .unnumbered}
 
 
-# Data availability {#datasharing .unnumbered}
+\newpage
 
+```{r, child="interest.Rmd"}
 
-# Declaration of competing interest {#declaration .unnumbered}
-The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+```
 
+```{r, child="credit.Rmd"}
 
-# Acknowledgements {#thanks .unnumbered}
+```
 
+```{r, child="thanks.Rmd"}
 
-# Supplementary materials {#appendix .unnumbered}
+```
+
+\newpage
+# References {#references .unnumbered}
+<div id="refs"></div>
+
+\newpage
 ```{r, child="appendix.Rmd"}
 
 ```
 
+\newpage
+```{r, child="highlight.Rmd"}
 
-# References {#references .unnumbered}
+```
+
+# Graphical abstract {#graphic .unnumbered}
+Delete `eval=FALSE` before run the code chunk  
+
+```{r, out.width="50%", fig.align='center', eval=FALSE}
+knitr::include_graphics(here("results", "figures", "graphical_abstract.pdf"))
+```
+
+\newpage
+```{r, child="cover_letter.Rmd"}
+
+```
+
+```{r, child="response_to_reviewers.Rmd"}
+
+```
 
 
