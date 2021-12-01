@@ -73,3 +73,5 @@ results/pictures/2021.png\
 elsevier/harmful-algae.csl\
 elsevier/bibliography.bib
 	Rscript -e 'rmarkdown::render("$<", output_format = "all")'
+
+all: elsevier/manuscript.pdf
