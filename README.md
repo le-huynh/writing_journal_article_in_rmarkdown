@@ -1,10 +1,6 @@
 
 ## Lehuynh's personal notes
 
-#### lastname_project_journal_year
-
-This repo includes data, code, results of data analysis, and documents related to my_project.
-
 ### Overview
 
 	project
@@ -42,7 +38,7 @@ This repo includes data, code, results of data analysis, and documents related t
 
 #### Notes
 - See `/elsevier/manuscript.Rmd` and `/elsevier/manuscript.pdf` for notes of rmarkdown  
-- R package: [lehuynh](https://github.com/le-huynh/lehuynh)
+- R package: [lehuynh](https://github.com/le-huynh/lehuynh), template `draft_elsevier`.
 
 ----------------------------------------
 - R packages: `patchwork`, `prettydoc`, `xaringan`
