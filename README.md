@@ -18,7 +18,8 @@ This repo includes data, code, results of data analysis, and documents related t
 	| |- my_header.tex     # LaTeX header file to format pdf version of manuscript
 	| |- bibliography.bib  # BibTeX formatted references
 	| |- XXXX.csl          # csl file to format references for journal XXX
-	| +- other files       # used to export .Rmd file to .pdf file
+	| |- *.Rmd	   # child documents
+	| +- other files	   # used to export .Rmd file to .pdf file
 	|
 	|- springer/	   # template for Springer journals, from `rticles` package
 	|
