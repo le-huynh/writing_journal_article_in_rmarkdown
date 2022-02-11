@@ -60,6 +60,8 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(here)
 library(tidyverse)
 library(kableExtra)
+
+options(scipen = 999)
 ```
 
 ```{r}
@@ -111,6 +113,7 @@ data %>%
 1. The *variable* $x$ and the **function** $f(x)$
 1. superscript^2^
 1. NO~2~, NO~3~, PO~4~, NH~4~
+1. 25 µL
 
 \[Y|X \sim Bernoulli(p)\]
 
@@ -146,9 +149,6 @@ p(x) = P(Y = 1|X = x) =
 - put citations in parentheses [@Walls2018]
 - cite multiple entries [@Davis2009; @Walls2018]
 - suppress the mention of the author [-@Liu2011a]
-
-
-
 
 # Results {#result}
 ## Use code inline

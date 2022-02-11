@@ -200,6 +200,8 @@ VC & 16.5 & 16.96333\tabularnewline
 \item
   NO\textsubscript{2}, NO\textsubscript{3}, PO\textsubscript{4},
   NH\textsubscript{4}
+\item
+  25 µL
 \end{enumerate}
 
 \[Y|X \sim Bernoulli(p)\]
@@ -352,14 +354,18 @@ cyanobacteria. Science of the Total Environment 610-611, 786--795.
 
 \newpage
 
-\renewcommand{\thefigure}{S\arabic{figure}}
+\appendix
 
-\setcounter{figure}{0} \renewcommand{\thetable}{S\arabic{table}}
-\setcounter{table}{0} \renewcommand{\theequation}{S\arabic{equation}}
+
+\renewcommand{\thefigure}{A.\arabic{figure}}
+
+\setcounter{figure}{0} \renewcommand{\thetable}{A.\arabic{table}}
+\setcounter{table}{0} \renewcommand{\theequation}{A.\arabic{equation}}
 \setcounter{equation}{0}
 
-\section*{Supplementary materials}\label{appendix}
-\addcontentsline{toc}{section}{Supplementary materials}
+\section{Supplementary materials A}\label{appendixA}
+
+\subsection{A cool figure}\label{a-cool-figure}
 
 Fig.\ref{fig:s2021} is in Supplementary materials.
 
@@ -371,6 +377,8 @@ Fig.\ref{fig:s2021} is in Supplementary materials.
 
 \caption{A plot in Supplementary Materials}\label{fig:s2021}
 \end{figure}
+
+\subsection{An awesome table}\label{an-awesome-table}
 
 Table.\ref{tab:stable} is in Supplementary materials.
 
@@ -390,6 +398,18 @@ VC & 16.5 & 16.963\tabularnewline
 \bottomrule
 \end{longtable}
 
+\newpage
+
+\renewcommand{\thefigure}{B.\arabic{figure}}
+
+\setcounter{figure}{0} \renewcommand{\thetable}{B.\arabic{table}}
+\setcounter{table}{0} \renewcommand{\theequation}{B.\arabic{equation}}
+\setcounter{equation}{0}
+
+\section{Supplementary materials B}\label{appendixB}
+
+\subsection{Some random code}\label{some-random-code}
+
 Some random SAS code
 
 \begin{verbatim}
@@ -402,6 +422,17 @@ PROC MCMC
         diag=all
         monitor=(p1 p2 cp I w); 
 \end{verbatim}
+
+\subsection{A green photo}\label{a-green-photo}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results/pictures/green} 
+
+}
+
+\caption{A green photo}\label{fig:green}
+\end{figure}
 
 \newpage
 
