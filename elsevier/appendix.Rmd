@@ -3,21 +3,35 @@ output:
   bookdown::pdf_book: default
   bookdown::word_document2: default  # for cross-references
 ---
-\renewcommand{\thefigure}{S\arabic{figure}}
+```{r setappendix, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+library(here)
+library(tidyverse)
+library(kableExtra)
+```
+
+# (APPENDIX) Appendix {-}
+
+\renewcommand{\thefigure}{A.\arabic{figure}}
 \setcounter{figure}{0}
-\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thetable}{A.\arabic{table}}
 \setcounter{table}{0}
-\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\theequation}{A.\arabic{equation}}
 \setcounter{equation}{0}
 
-# Supplementary materials {#appendix .unnumbered}
+# Supplementary materials A {#appendixA}
+## A cool figure
 
 Fig.\ref{fig:s2021} is in Supplementary materials.
+
 ```{r s2021, echo=FALSE, fig.cap='A plot in Supplementary Materials', out.width="80%", fig.align='center'}
 knitr::include_graphics(here::here("results", "pictures", "2021.png"))
 ```
 
+## An awesome table
 Table.\ref{tab:stable} is in Supplementary materials.
+
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 data %>% 
           group_by(supp) %>%
@@ -32,6 +46,18 @@ data %>%
 	      caption = "\\label{tab:stable}This table again")
 ```
 
+\newpage
+
+\renewcommand{\thefigure}{B.\arabic{figure}}
+\setcounter{figure}{0}
+\renewcommand{\thetable}{B.\arabic{table}}
+\setcounter{table}{0}
+\renewcommand{\theequation}{B.\arabic{equation}}
+\setcounter{equation}{0}
+
+# Supplementary materials B {#appendixB}
+## Some random code
+
 Some random SAS code  
 ```
 PROC MCMC 
@@ -42,5 +68,11 @@ PROC MCMC
 		seed=1
 		diag=all
 		monitor=(p1 p2 cp I w); 
+```
+
+## A green photo
+
+```{r green, echo=FALSE, fig.cap='A green photo', out.width="80%", fig.align='center'}
+knitr::include_graphics(here::here("results", "pictures", "green.jpeg"))
 ```
 
