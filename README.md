@@ -4,12 +4,13 @@
 ### Overview
 
 	project
-	|- README.md	   # the top level description of content (this doc)
+	|- README.md		# the top level description of content (this doc)
 	|
 	|- elsevier/		# for Elsevier journals
 	| |- manuscript.Rmd	# executable Rmarkdown for this study
 	| |- manuscript.tex	# TeX version of *.Rmd file (for journal submission)
 	| |- manuscript.pdf	# PDF version of *.Rmd file
+	| |- manuscript.docx	# docx version of *.Rmd file
 	| |- my_header.tex	# LaTeX header file to format pdf version of manuscript
 	| |- bibliography.bib	# BibTeX formatted references
 	| |- XXXX.csl		# csl file to format references for journal XXX
