@@ -11,7 +11,7 @@ Month Day, Year
 Dear Dr. AAA,  
 
 I am happy to submit my manuscript, **article_name**, for your consideration at *journal_name*. 
-This work *do sth interesting*. 
+This work *did sth interesting*. 
 The main conclusion is that *sth cool*.  
 
 All of the authors have read and approved the paper and it has not been published previously nor is it being considered by any other peer-reviewed journal.  
