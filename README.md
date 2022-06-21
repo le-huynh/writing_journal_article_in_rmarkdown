@@ -6,7 +6,7 @@
 	project
 	|- README.md		# the top level description of content (this doc)
 	|
-	|- elsevier/		# for Elsevier journals
+	|- elsevier/		# submission for Elsevier journals
 	| |- manuscript.Rmd	# executable Rmarkdown for this study
 	| |- manuscript.tex	# TeX version of *.Rmd file (for journal submission)
 	| |- manuscript.pdf	# PDF version of *.Rmd file
@@ -16,8 +16,6 @@
 	| |- XXXX.csl		# csl file to format references for journal XXX
 	| |- *.Rmd		# child documents
 	| +- other files	# used to export .Rmd file to .pdf file
-	|
-	|- springer/		# template for Springer journals, from `rticles` package
 	|
 	|- data			# raw and primary data, are not changed once created
 	| |- raw/		# raw data, will not be altered
@@ -33,6 +31,7 @@
 	|- exploratory/		# exploratory data analysis for study
 	| |- notebook/		# preliminary data analyses
 	| |- text/		# all information related to journal, meeting, outline, etc.
+	| |- springer/		# template for Springer journals, from `rticles` package
 	| +- scratch/		# temporary files that can be safely deleted or lost
 	|
 	+- Makefile		# executable Makefile for this study
