@@ -32,6 +32,46 @@
 % use microtype if available
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 \bibliographystyle{elsarticle-harv}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -65,6 +105,13 @@
 % Pandoc citation processing
 
 % Pandoc header
+% nullify the abstract environment
+% \renewenvironment{abstract}{}{}
+
+% Use the `align` environment inside the `subequations` environment 
+% from the `amsmath` package to label equation with subnumber (e.g. 1a, 1b)
+\usepackage{amsmath}
+
 %fix position of table, figure
 \usepackage{float}
 \let\origfigure\figure
@@ -127,6 +174,44 @@ City, State, Zip}
 
 \section{Introduction}\label{intro}
 
+Setting \textbf{global options} that apply to every chunk in the file.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{```\{r setup, include=FALSE\}}
+\NormalTok{knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)}
+
+\NormalTok{library(here)}
+\NormalTok{library(tidyverse)}
+\NormalTok{library(kableExtra)}
+
+\FunctionTok{# displaying 20000 instead of 2 x 10^4}
+\NormalTok{options(scipen = 999)}
+\NormalTok{```}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{```\{r\}}
+\FunctionTok{# import data}
+\NormalTok{data <- read_csv(here("data", "process", "newdata.csv"))}
+\NormalTok{```}
+\end{Highlighting}
+\end{Shaded}
+
+Ordered list items:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{1. }\FloatTok{general information}
+\FloatTok{1. research gap}
+\FloatTok{1. research aim}
+\end{Highlighting}
+\end{Shaded}
+
+The output is:
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -144,6 +229,14 @@ City, State, Zip}
 
 Add Fig. \ref{fig:boxplot} here.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{```\{r boxplot, fig.cap='A boxplot', out.height="50%", fig.align='center'\}}
+\NormalTok{knitr::include_graphics(here::here("results", "figures", "boxplot.pdf"))}
+\NormalTok{```}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{figure}
 
 {\centering \includegraphics[height=0.5\textheight]{C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results/figures/boxplot} 
@@ -153,9 +246,18 @@ Add Fig. \ref{fig:boxplot} here.
 \caption{A boxplot}\label{fig:boxplot}
 \end{figure}
 
-If the caption is too long (fig.\ref{fig:2021}), use the
+If the caption is too long (Fig. \ref{fig:2021}), use
 \href{https://bookdown.org/yihui/rmarkdown/bookdown-markdown.html\#text-references}{text-reference}.
-See the code in ``elsevier/manuscript.Rmd'' for more information.
+
+\texttt{(ref:longcaption)\ This\ is\ a\ very\ long\ caption}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{```\{r 2021, fig.cap='(ref:longcaption', out.width="50%", fig.align='center'\}}
+\NormalTok{knitr::include_graphics(here::here("results", "pictures", "2021.png"))}
+\NormalTok{```}
+\end{Highlighting}
+\end{Shaded}
 
 
 
@@ -169,6 +271,24 @@ See the code in ``elsevier/manuscript.Rmd'' for more information.
 \end{figure}
 
 \subsection{Adding tables}\label{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{```\{r\}}
+\NormalTok{data %>% }
+\BaseNTok{          group_by(supp) %>%}
+\BaseNTok{          summarise(median = median(len),}
+\BaseNTok{                    mean = mean(len)) %>% }
+\BaseNTok{    kable("simple",}
+\BaseNTok{          booktabs = T,}
+\BaseNTok{          col.names = c("Supplement type", }
+\BaseNTok{                    "Median",}
+\BaseNTok{                    "Mean"), }
+\BaseNTok{          align = "cll",}
+\BaseNTok{          caption = "\textbackslash{}\textbackslash{}label\{tab:cooltable\}Mean and Median")}
+\NormalTok{```}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{longtable}[]{@{}cll@{}}
 \caption{\label{tab:unnamed-chunk-2}\label{tab:cooltable}Mean and
@@ -188,6 +308,18 @@ VC & 16.5 & 16.96333\tabularnewline
 
 \subsection{Adding equation}\label{equation}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{1. }\FloatTok{The _variable_ \textbackslash{}(x\textbackslash{}) and the __function__ \textbackslash{}(f(x)\textbackslash{})}
+\FloatTok{1. The *variable* $x$ and the **function** $f(x)$}
+\FloatTok{1. superscript^2^}
+\FloatTok{1. NO~2~, NO~3~, PO~4~, NH~4~}
+\FloatTok{1. 25 µL}
+\end{Highlighting}
+\end{Shaded}
+
+The output is:
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -204,9 +336,30 @@ VC & 16.5 & 16.96333\tabularnewline
   25 µL
 \end{enumerate}
 
+Adding equations using the LaTeX syntax
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialStringTok{\textbackslash{}[Y|X }\SpecialCharTok{\textbackslash{}sim}\SpecialStringTok{ Bernoulli(p)\textbackslash{}]}
+\end{Highlighting}
+\end{Shaded}
+
 \[Y|X \sim Bernoulli(p)\]
 
-or
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}
+\SpecialCharTok{\textbackslash{}label}\SpecialStringTok{\{eq:cutoff\}}
+\SpecialStringTok{p(x) = P(Y = 1|X = x) = }
+\SpecialCharTok{\textbackslash{}left\textbackslash{}\{}
+\SpecialStringTok{    }\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{array}\NormalTok{\}}\SpecialStringTok{\{lr\}}
+\SpecialStringTok{          p_1 = P(Y = 1|X }\SpecialCharTok{\textbackslash{}le}\SpecialStringTok{ cp), & }\SpecialCharTok{\textbackslash{}text}\NormalTok{\{if \}}\SpecialStringTok{ x }\SpecialCharTok{\textbackslash{}le}\SpecialStringTok{ cp}\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{          p_2 = P(Y = 1|X > cp), & }\SpecialCharTok{\textbackslash{}text}\NormalTok{\{if \}}\SpecialStringTok{ x > cp}
+\SpecialStringTok{    }\KeywordTok{\textbackslash{}end}\NormalTok{\{}\SpecialStringTok{array\}}
+\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{.}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{equation}
 \label{eq:cutoff}
@@ -218,6 +371,48 @@ p(x) = P(Y = 1|X = x) =
     \end{array}
 \right.
 \end{equation}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{subequations}\NormalTok{\}}
+  \KeywordTok{\textbackslash{}label}\NormalTok{\{}\ExtensionTok{eq:model}\NormalTok{\}}
+  \KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{align}\NormalTok{\}}
+\SpecialStringTok{  }\SpecialCharTok{\textbackslash{}label}\SpecialStringTok{\{eq:modela\}}
+\SpecialStringTok{P(y|}\SpecialCharTok{\textbackslash{}theta}\SpecialStringTok{, }\SpecialCharTok{\textbackslash{}lambda}\SpecialStringTok{) = }
+\SpecialCharTok{\textbackslash{}left\textbackslash{}\{}
+\SpecialStringTok{    }\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{array}\NormalTok{\}}\SpecialStringTok{\{lr\}}
+\SpecialStringTok{       }\SpecialCharTok{\textbackslash{}theta}\SpecialStringTok{ & }\SpecialCharTok{\textbackslash{}text}\NormalTok{\{if \}}\SpecialStringTok{ y = 0}\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{       (1 - }\SpecialCharTok{\textbackslash{}theta}\SpecialStringTok{) }\SpecialCharTok{\textbackslash{}frac}\SpecialStringTok{\{Poisson(y|}\SpecialCharTok{\textbackslash{}lambda}\SpecialStringTok{)\}\{1 - PoissonCDF(0|}\SpecialCharTok{\textbackslash{}lambda}\SpecialStringTok{)\} }
+\SpecialStringTok{       & }\SpecialCharTok{\textbackslash{}text}\NormalTok{\{if \}}\SpecialStringTok{ y > 0}
+\SpecialStringTok{    }\KeywordTok{\textbackslash{}end}\NormalTok{\{}\SpecialStringTok{array\}}
+\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{. }\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{  }\SpecialCharTok{\textbackslash{}label}\SpecialStringTok{\{eq:modelb\}}
+\SpecialStringTok{logit(}\SpecialCharTok{\textbackslash{}theta}\SpecialStringTok{) = }\SpecialCharTok{\textbackslash{}alpha}\SpecialStringTok{_0 + }\SpecialCharTok{\textbackslash{}alpha}\SpecialStringTok{_1 * x_1 + }\SpecialCharTok{\textbackslash{}alpha}\SpecialStringTok{_2 * x_2 }\SpecialCharTok{\textbackslash{}\textbackslash{}}
+\SpecialStringTok{  }\SpecialCharTok{\textbackslash{}label}\SpecialStringTok{\{eq:modelc\}}
+\SpecialStringTok{log(}\SpecialCharTok{\textbackslash{}lambda}\SpecialStringTok{) = }\SpecialCharTok{\textbackslash{}beta}\SpecialStringTok{_0 + }\SpecialCharTok{\textbackslash{}beta}\SpecialStringTok{_1 * x_1 + }\SpecialCharTok{\textbackslash{}beta}\SpecialStringTok{_2 * x_2 + }\SpecialCharTok{\textbackslash{}nu}
+\SpecialStringTok{  }\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{align}\NormalTok{\}}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{subequations}\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{subequations}
+  \label{eq:model}
+  \begin{align}
+  \label{eq:modela}
+P(y|\theta, \lambda) = 
+\left\{
+    \begin{array}{lr}
+          \theta & \text{if } y = 0\\
+          (1 - \theta) \frac{Poisson(y|\lambda)}{1 - PoissonCDF(0|\lambda)} 
+          & \text{if } y > 0
+    \end{array}
+\right. \\
+  \label{eq:modelb}
+logit(\theta) = \alpha_0 + \alpha_1 * x_1 + \alpha_2 * x_2 \\
+  \label{eq:modelc}
+log(\lambda) = \beta_0 + \beta_1 * x_1 + \beta_2 * x_2 + \nu
+  \end{align}
+\end{subequations}
 
 \subsection{Cross-reference}\label{cross-reference}
 
@@ -237,15 +432,26 @@ p(x) = P(Y = 1|X = x) =
 \texttt{0-9}), \texttt{-}, \texttt{/}, and \texttt{:} are allowed in
 labels.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{1. }\FloatTok{Fig.\textbackslash{}ref\{fig:boxplot\} and fig.\textbackslash{}ref\{fig:2021\}}
+\FloatTok{1. Table. \textbackslash{}ref\{tab:cooltable\}}
+\FloatTok{1. Equation \textbackslash{}ref\{eq:cutoff\}, Eq. \textbackslash{}ref\{eq:model\}, Eq. \textbackslash{}ref\{eq:modela\}}
+\FloatTok{1. Section \textbackslash{}ref\{intro\} and section \textbackslash{}ref\{figure\}}
+\end{Highlighting}
+\end{Shaded}
+
+The output is:
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Fig.\ref{fig:boxplot} and fig.\ref{fig:2021}
+  Fig. \ref{fig:boxplot} and Fig. \ref{fig:2021}
 \item
   Table. \ref{tab:cooltable}
 \item
-  Equation \ref{eq:cutoff}
+  Equation \ref{eq:cutoff}, Eq. \ref{eq:model}, Eq. \ref{eq:modela}
 \item
   Section \ref{intro} and section \ref{figure}
 \end{enumerate}
@@ -255,18 +461,26 @@ labels.
 \begin{itemize}
 \tightlist
 \item
-  cite directly Davis et al. (2009)
+  \texttt{@Davis2009}: cite directly Davis et al. (2009)
 \item
-  put citations in parentheses (Walls et al., 2018)
+  \texttt{{[}@Walls2018{]}}: put citations in parentheses (Walls et al.,
+  2018)
 \item
-  cite multiple entries (Davis et al., 2009; Walls et al., 2018)
+  \texttt{{[}@Davis2009;\ @Walls2018{]}}: cite multiple entries (Davis
+  et al., 2009; Walls et al., 2018)
 \item
-  suppress the mention of the author (2011)
+  \texttt{{[}-@Liu2011a{]}}: suppress the mention of the author (2011)
 \end{itemize}
 
 \section{Results}\label{result}
 
 \subsection{Use code inline}\label{use-code-inline}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{The maximum tooth length is }\BaseNTok{`r max(data$len)`}\NormalTok{.}
+\end{Highlighting}
+\end{Shaded}
 
 The maximum tooth length is 33.9.
 
@@ -283,11 +497,13 @@ The maximum tooth length is 33.9.
   (e.g.~before Supplementary Materials):
 \end{itemize}
 
-\begin{verbatim}
-# References
-<div id="refs"></div>
-# Supplementary Materials
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{# References}
+\NormalTok{<div id="refs"></div>}
+\FunctionTok{# Supplementary Materials}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{itemize}
 \tightlist
@@ -464,7 +680,7 @@ Month Day, Year
 Dear Dr.~AAA,
 
 I am happy to submit my manuscript, \textbf{article\_name}, for your
-consideration at \emph{journal\_name}. This work \emph{do sth
+consideration at \emph{journal\_name}. This work \emph{did sth
 interesting}. The main conclusion is that \emph{sth cool}.
 
 All of the authors have read and approved the paper and it has not been

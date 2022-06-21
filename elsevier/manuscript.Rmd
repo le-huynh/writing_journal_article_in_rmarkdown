@@ -72,6 +72,39 @@ data <- read.csv(here("data", "process", "newdata.csv"))
 \newpage
 
 # Introduction {#intro}
+
+Setting __global options__ that apply to every chunk in the file.  
+
+````markdown
+`r ''````{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+library(here)
+library(tidyverse)
+library(kableExtra)
+
+# displaying 20000 instead of 2 x 10^4
+options(scipen = 999)
+```
+````
+
+````markdown
+`r ''````{r}
+# import data
+data <- read_csv(here("data", "process", "newdata.csv"))
+```
+````
+
+Ordered list items:  
+
+```markdown
+1. general information
+1. research gap
+1. research aim
+```
+
+The output is:
+
 1. general information
 1. research gap
 1. research aim
@@ -80,12 +113,26 @@ data <- read.csv(here("data", "process", "newdata.csv"))
 ## Adding figures {#figure}
 Add Fig. \ref{fig:boxplot} here.  
 
+````markdown
+`r ''````{r boxplot, fig.cap='A boxplot', out.height="50%", fig.align='center'}
+knitr::include_graphics(here::here("results", "figures", "boxplot.pdf"))
+```
+````
+
 ```{r boxplot, fig.cap='A boxplot', out.height="50%", fig.align='center'}
 knitr::include_graphics(here::here("results", "figures", "boxplot.pdf"))
 ```
 
-If the caption is too long (fig.\ref{fig:2021}), use the [text-reference](https://bookdown.org/yihui/rmarkdown/bookdown-markdown.html#text-references). 
-See the code in "elsevier/manuscript.Rmd" for more information.  
+
+If the caption is too long (Fig. \ref{fig:2021}), use [text-reference](https://bookdown.org/yihui/rmarkdown/bookdown-markdown.html#text-references).  
+
+`(ref:longcaption) This is a very long caption`  
+
+````markdown
+`r ''````{r 2021, fig.cap='(ref:longcaption', out.width="50%", fig.align='center'}
+knitr::include_graphics(here::here("results", "pictures", "2021.png"))
+```
+````
 
 (ref:longcaption) This is a very long caption
 ```{r 2021, fig.cap='(ref:longcaption)', out.width="50%", fig.align='center'}
@@ -93,6 +140,24 @@ knitr::include_graphics(here::here("results", "pictures", "2021.png"))
 ```
 
 ## Adding tables {#table}
+
+````markdown
+`r ''````{r}
+data %>% 
+          group_by(supp) %>%
+          summarise(median = median(len),
+                    mean = mean(len)) %>% 
+	kable("simple",
+	      booktabs = T,
+	      col.names = c("Supplement type", 
+	      	    	"Median",
+	      	    	"Mean"), 
+	      align = "cll",
+	      caption = "\\label{tab:cooltable}Mean and Median")
+```
+````
+
+
 ```{r}
 data %>% 
           group_by(supp) %>%
@@ -109,15 +174,45 @@ data %>%
 
 
 ## Adding equation {#equation}
+
+```markdown
+1. The _variable_ \(x\) and the __function__ \(f(x)\)
+1. The *variable* $x$ and the **function** $f(x)$
+1. superscript^2^
+1. NO~2~, NO~3~, PO~4~, NH~4~
+1. 25 µL
+```
+
+The output is:
+
 1. The _variable_ \(x\) and the __function__ \(f(x)\)
 1. The *variable* $x$ and the **function** $f(x)$
 1. superscript^2^
 1. NO~2~, NO~3~, PO~4~, NH~4~
 1. 25 µL
 
+
+Adding equations using the LaTeX syntax  
+
+```latex
+\[Y|X \sim Bernoulli(p)\]
+```
+
 \[Y|X \sim Bernoulli(p)\]
 
-or
+
+```latex
+\begin{equation}
+\label{eq:cutoff}
+p(x) = P(Y = 1|X = x) = 
+\left\{
+    \begin{array}{lr}
+          p_1 = P(Y = 1|X \le cp), & \text{if } x \le cp\\
+          p_2 = P(Y = 1|X > cp), & \text{if } x > cp
+    \end{array}
+\right.
+\end{equation}
+```
 
 \begin{equation}
 \label{eq:cutoff}
@@ -131,6 +226,47 @@ p(x) = P(Y = 1|X = x) =
 \end{equation}  
 
 
+```latex
+\begin{subequations}
+  \label{eq:model}
+  \begin{align}
+  \label{eq:modela}
+P(y|\theta, \lambda) = 
+\left\{
+    \begin{array}{lr}
+       \theta & \text{if } y = 0\\
+       (1 - \theta) \frac{Poisson(y|\lambda)}{1 - PoissonCDF(0|\lambda)} 
+       & \text{if } y > 0
+    \end{array}
+\right. \\
+  \label{eq:modelb}
+logit(\theta) = \alpha_0 + \alpha_1 * x_1 + \alpha_2 * x_2 \\
+  \label{eq:modelc}
+log(\lambda) = \beta_0 + \beta_1 * x_1 + \beta_2 * x_2 + \nu
+  \end{align}
+\end{subequations}
+```
+
+\begin{subequations}
+  \label{eq:model}
+  \begin{align}
+  \label{eq:modela}
+P(y|\theta, \lambda) = 
+\left\{
+    \begin{array}{lr}
+          \theta & \text{if } y = 0\\
+          (1 - \theta) \frac{Poisson(y|\lambda)}{1 - PoissonCDF(0|\lambda)} 
+          & \text{if } y > 0
+    \end{array}
+\right. \\
+  \label{eq:modelb}
+logit(\theta) = \alpha_0 + \alpha_1 * x_1 + \alpha_2 * x_2 \\
+  \label{eq:modelc}
+log(\lambda) = \beta_0 + \beta_1 * x_1 + \beta_2 * x_2 + \nu
+  \end{align}
+\end{subequations}
+
+
 ## Cross-reference
 * figure: `\ref{fig:label}`
 * table: `\ref{tab:label}`
@@ -139,31 +275,46 @@ p(x) = P(Y = 1|X = x) =
 
 **Note:** only alphanumeric characters (`a-z`, `A-Z`, `0-9`), `-`, `/`, and `:` are allowed in labels. 
 
+```markdown
 1. Fig.\ref{fig:boxplot} and fig.\ref{fig:2021}
 1. Table. \ref{tab:cooltable}
-1. Equation \ref{eq:cutoff}
+1. Equation \ref{eq:cutoff}, Eq. \ref{eq:model}, Eq. \ref{eq:modela}
+1. Section \ref{intro} and section \ref{figure}
+```
+
+The output is:
+
+1. Fig. \ref{fig:boxplot} and Fig. \ref{fig:2021}
+1. Table. \ref{tab:cooltable}
+1. Equation \ref{eq:cutoff}, Eq. \ref{eq:model}, Eq. \ref{eq:modela}
 1. Section \ref{intro} and section \ref{figure}
 
 ## Citation syntax
-- cite directly @Davis2009
-- put citations in parentheses [@Walls2018]
-- cite multiple entries [@Davis2009; @Walls2018]
-- suppress the mention of the author [-@Liu2011a]
+- `@Davis2009`: cite directly @Davis2009
+- `[@Walls2018]`: put citations in parentheses [@Walls2018]
+- `[@Davis2009; @Walls2018]`: cite multiple entries [@Davis2009; @Walls2018]
+- `[-@Liu2011a]`: suppress the mention of the author [-@Liu2011a]
 
 # Results {#result}
 ## Use code inline
-The maximum tooth length is `r max(data$len)`.
+
+```markdown
+The maximum tooth length is `r '\x60r max(data$len)\x60'`.
+```
+
+The maximum tooth length is `r max(data$len)`.  
 
 ## Random things
 - download `.csl` file at [Zotero Style Repository](https://www.zotero.org/styles)
 - *References* section is created at the end of the document by default. 
 To put *References* section in a specific place (e.g. before Supplementary Materials):
 
-```
+```markdown
 # References
 <div id="refs"></div>
 # Supplementary Materials
 ```
+
 - check spelling in rmarkdown: `F7`
 - [word count addin](https://github.com/benmarwick/wordcountaddin)
 
