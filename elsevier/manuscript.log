@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8 32-bit) (preloaded format=pdflatex 2021.8.11)  22 JUN 2022 01:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8 32-bit) (preloaded format=pdflatex 2021.8.11)  27 SEP 2022 23:52
 entering extended mode
 **./manuscript.tex
 (manuscript.tex
@@ -801,159 +801,179 @@ Package xcolor Warning: Incompatible color definition on input line 291.
 Package xcolor Warning: Incompatible color definition on input line 291.
 
 
-Package xcolor Warning: Incompatible color definition on input line 311.
+Package xcolor Warning: Incompatible color definition on input line 307.
 
-[4pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) 
-has been already used, duplicate ignored
+[4pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
+as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.311 \begin{Shaded}
+l.307 \begin{Shaded}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.307 \begin{Shaded}
                      <C:/Users/LY/Google Drive/Git/writing_journal_article_in_r
 markdown/results/pictures/2021.png>]
 
-Package xcolor Warning: Incompatible color definition on input line 319.
+Package xcolor Warning: Incompatible color definition on input line 333.
 
 
-Package xcolor Warning: Incompatible color definition on input line 319.
+Package xcolor Warning: Incompatible color definition on input line 333.
 
+
+Package xcolor Warning: Incompatible color definition on input line 353.
+
+
+Package xcolor Warning: Incompatible color definition on input line 361.
+
+
+Package xcolor Warning: Incompatible color definition on input line 361.
+
+[5]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
-36.
+78.
 (C:\Users\LY\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 
-Package xcolor Warning: Incompatible color definition on input line 341.
+Package xcolor Warning: Incompatible color definition on input line 383.
 
 
-Package xcolor Warning: Incompatible color definition on input line 345.
+Package xcolor Warning: Incompatible color definition on input line 387.
 
 
-Package xcolor Warning: Incompatible color definition on input line 345.
+Package xcolor Warning: Incompatible color definition on input line 387.
 
 
-Package xcolor Warning: Incompatible color definition on input line 349.
+Package xcolor Warning: Incompatible color definition on input line 391.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 351.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 393.
 
-Package xcolor Warning: Incompatible color definition on input line 362.
-
-
-Package xcolor Warning: Incompatible color definition on input line 362.
-
-[5]
-
-Package xcolor Warning: Incompatible color definition on input line 375.
+Package xcolor Warning: Incompatible color definition on input line 404.
 
 
-Package xcolor Warning: Incompatible color definition on input line 396.
+Package xcolor Warning: Incompatible color definition on input line 404.
+
+[6pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.415 \end{equation}
+                    ]
+
+Package xcolor Warning: Incompatible color definition on input line 417.
 
 
-Package xcolor Warning: Incompatible color definition on input line 396.
-
-[6]
-
-Package xcolor Warning: Incompatible color definition on input line 435.
+Package xcolor Warning: Incompatible color definition on input line 438.
 
 
-Package xcolor Warning: Incompatible color definition on input line 442.
-
-
-Package xcolor Warning: Incompatible color definition on input line 442.
-
-
-Package xcolor Warning: Incompatible color definition on input line 479.
-
-
-Package xcolor Warning: Incompatible color definition on input line 483.
-
-
-Package xcolor Warning: Incompatible color definition on input line 483.
+Package xcolor Warning: Incompatible color definition on input line 438.
 
 [7]
 
-Package xcolor Warning: Incompatible color definition on input line 500.
+Package xcolor Warning: Incompatible color definition on input line 477.
 
 
-Package xcolor Warning: Incompatible color definition on input line 506.
+Package xcolor Warning: Incompatible color definition on input line 484.
 
 
-Package xcolor Warning: Incompatible color definition on input line 506.
+Package xcolor Warning: Incompatible color definition on input line 484.
 
-[8] [9] [10]
+
+Package xcolor Warning: Incompatible color definition on input line 521.
+
+
+Package xcolor Warning: Incompatible color definition on input line 525.
+
+
+Package xcolor Warning: Incompatible color definition on input line 525.
+
+[8]
+
+Package xcolor Warning: Incompatible color definition on input line 542.
+
+
+Package xcolor Warning: Incompatible color definition on input line 548.
+
+
+Package xcolor Warning: Incompatible color definition on input line 548.
+
+[9] [10] [11]
 File: C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results
 /pictures/2021.png Graphic file (type png)
 <use C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results/
 pictures/2021.png>
 Package pdftex.def Info: C:/Users/LY/Google Drive/Git/writing_journal_article_i
-n_rmarkdown/results/pictures/2021.png  used on input line 590.
+n_rmarkdown/results/pictures/2021.png  used on input line 632.
 (pdftex.def)             Requested size: 276.00105pt x 138.42131pt.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.594 \caption
+l.636 \caption
               {A plot in Supplementary Materials}\label{fig:s2021}pdfTeX warnin
 g (ext4): destination with the same identifier (name{figure.1}) has been alread
 y used, duplicate ignored
 <to be read again> 
                    \relax 
-l.594 \caption{A plot in Supplementary Materials}
+l.636 \caption{A plot in Supplementary Materials}
                                                  \label{fig:s2021}pdfTeX warnin
 g (ext4): destination with the same identifier (name{table.1}) has been already
  used, duplicate ignored
 <to be read again> 
                    \relax 
-l.615 \end{longtable}
-                      [11]
+l.657 \end{longtable}
+                      [12]
 <C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results/pict
-ures/green.jpg, id=256, 770.88pt x 963.6pt>
+ures/green.jpg, id=261, 770.88pt x 963.6pt>
 File: C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results
 /pictures/green.jpg Graphic file (type jpg)
 <use C:/Users/LY/Google Drive/Git/writing_journal_article_in_rmarkdown/results/
 pictures/green.jpg>
 Package pdftex.def Info: C:/Users/LY/Google Drive/Git/writing_journal_article_i
-n_rmarkdown/results/pictures/green.jpg  used on input line 646.
+n_rmarkdown/results/pictures/green.jpg  used on input line 688.
 (pdftex.def)             Requested size: 276.00105pt x 344.99901pt.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.650 \caption
+l.692 \caption
               {A green photo}\label{fig:green}pdfTeX warning (ext4): destinatio
 n with the same identifier (name{figure.1}) has been already used, duplicate ig
 nored
 <to be read again> 
                    \relax 
-l.650 \caption{A green photo}
-                             \label{fig:green} [12] [13 <C:/Users/LY/Google Dri
-ve/Git/writing_journal_article_in_rmarkdown/results/pictures/green.jpg>] [14]
+l.692 \caption{A green photo}
+                             \label{fig:green} [13] [14 <C:/Users/LY/Google Dri
+ve/Git/writing_journal_article_in_rmarkdown/results/pictures/green.jpg>] [15]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 676.
+(hyperref)                than one, level fixed on input line 718.
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 728.
+(hyperref)                than one, level fixed on input line 770.
 
-[15] [16] (manuscript.aux)
+[16] [17] (manuscript.aux)
 Package rerunfilecheck Info: File `manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: 7D2056C8F0E577DA96183AE97FEF2F8E;4332.
  ) 
 Here is how much of TeX's memory you used:
- 15131 strings out of 478868
- 227493 string characters out of 2850231
- 573196 words of memory out of 3000000
- 32573 multiletter control sequences out of 15000+600000
+ 15135 strings out of 478868
+ 227552 string characters out of 2850231
+ 574257 words of memory out of 3000000
+ 32575 multiletter control sequences out of 15000+600000
  464184 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,17n,80p,367b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/LY/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{
-C:/Users/LY/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/User
-s/LY/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Users/L
-Y/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/LY/AppDa
-ta/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/LY/AppData/
-Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Users/LY/AppData/Local/
+C:/Users/LY/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}{C:/
+Users/LY/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/L
+Y/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/LY/A
+ppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users/LY/AppData
+/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}<C:/Users/LY/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/LY/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/LY/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/LY/AppData/Local/Programs/
@@ -971,9 +991,9 @@ b><C:/Users/LY/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C
 ers/LY/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users
 /LY/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/LY
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
-Output written on manuscript.pdf (16 pages, 554131 bytes).
+Output written on manuscript.pdf (17 pages, 557082 bytes).
 PDF statistics:
- 386 PDF objects out of 1000 (max. 8388607)
- 77 named destinations out of 1000 (max. 500000)
+ 392 PDF objects out of 1000 (max. 8388607)
+ 79 named destinations out of 1000 (max. 500000)
  35072 words of extra memory for PDF output out of 35830 (max. 10000000)
 

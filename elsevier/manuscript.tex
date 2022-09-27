@@ -274,12 +274,12 @@ If the caption is too long (Fig. \ref{fig:2021}), use
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{```\{r\}}
+\NormalTok{```\{r table1\}}
 \NormalTok{data %>% }
 \BaseNTok{          group_by(supp) %>%}
 \BaseNTok{          summarise(median = median(len),}
 \BaseNTok{                    mean = mean(len)) %>% }
-\BaseNTok{    kable("simple",}
+\BaseNTok{    kable("latex",}
 \BaseNTok{          booktabs = T,}
 \BaseNTok{          col.names = c("Supplement type", }
 \BaseNTok{                    "Median",}
@@ -290,21 +290,63 @@ If the caption is too long (Fig. \ref{fig:2021}), use
 \end{Highlighting}
 \end{Shaded}
 
-\begin{longtable}[]{@{}cll@{}}
-\caption{\label{tab:unnamed-chunk-2}\label{tab:cooltable}Mean and
-Median}\tabularnewline
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-2}\label{tab:cooltable}Mean and Median}
+\centering
+\begin{tabular}[t]{cll}
 \toprule
-Supplement type & Median & Mean\tabularnewline
+Supplement type & Median & Mean\\
 \midrule
-\endfirsthead
-\toprule
-Supplement type & Median & Mean\tabularnewline
-\midrule
-\endhead
-OJ & 22.7 & 20.66333\tabularnewline
-VC & 16.5 & 16.96333\tabularnewline
+OJ & 22.7 & 20.66333\\
+VC & 16.5 & 16.96333\\
 \bottomrule
-\end{longtable}
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{```\{r table2\}}
+\NormalTok{para = c("Intercept ($\textbackslash{}\textbackslash{}beta_0$)",}
+\BaseNTok{         "Parameter 1 ($\textbackslash{}\textbackslash{}beta_1$)",}
+\BaseNTok{         "Parameter 2 ($\textbackslash{}\textbackslash{}beta_2$)",}
+\BaseNTok{         "Hurdle probability ($\textbackslash{}\textbackslash{}theta$)")}
+
+\NormalTok{tab <- data.frame(}
+\BaseNTok{    Parameter = para,}
+\BaseNTok{    Estimate = c(1.6, 1.2, 6.2, 0.5),}
+\BaseNTok{    Error = c(0.41, 0.02, 0.09, 0.07),}
+\BaseNTok{    CI = c("[0.698, 2.477]",}
+\BaseNTok{           "[1.123, 1.235]",}
+\BaseNTok{           "[6.051, 6.423]",}
+\BaseNTok{           "[0.353, 0.644]"),}
+\BaseNTok{    Rhat = c(rep("1.00", 4)))}
+
+\NormalTok{kable(tab,}
+\BaseNTok{      "latex",}
+\BaseNTok{      align = "lcccc",}
+\BaseNTok{      booktabs = TRUE,}
+\BaseNTok{      escape = FALSE,}
+\BaseNTok{      caption = "\textbackslash{}\textbackslash{}label\{tab:mathtable\}A table with LaTeX Math symbols")}
+\NormalTok{```}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-3}\label{tab:mathtable}A table with LaTeX Math symbols}
+\centering
+\begin{tabular}[t]{lcccc}
+\toprule
+Parameter & Estimate & Error & CI & Rhat\\
+\midrule
+Intercept ($\beta_0$) & 1.6 & 0.41 & {}[0.698, 2.477] & 1.00\\
+Parameter 1 ($\beta_1$) & 1.2 & 0.02 & {}[1.123, 1.235] & 1.00\\
+Parameter 2 ($\beta_2$) & 6.2 & 0.09 & {}[6.051, 6.423] & 1.00\\
+Hurdle probability ($\theta$) & 0.5 & 0.07 & {}[0.353, 0.644] & 1.00\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Adding equation}\label{equation}
 
@@ -599,7 +641,7 @@ Fig.\ref{fig:s2021} is in Supplementary materials.
 Table.\ref{tab:stable} is in Supplementary materials.
 
 \begin{longtable}[]{@{}cll@{}}
-\caption{\label{tab:unnamed-chunk-11}\label{tab:stable}This table
+\caption{\label{tab:unnamed-chunk-12}\label{tab:stable}This table
 again}\tabularnewline
 \toprule
 Supplement type & Median & Mean\tabularnewline

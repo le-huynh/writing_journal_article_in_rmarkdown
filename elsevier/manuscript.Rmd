@@ -142,12 +142,12 @@ knitr::include_graphics(here::here("results", "pictures", "2021.png"))
 ## Adding tables {#table}
 
 ````markdown
-`r ''````{r}
+`r ''````{r table1}
 data %>% 
           group_by(supp) %>%
           summarise(median = median(len),
                     mean = mean(len)) %>% 
-	kable("simple",
+	kable("latex",
 	      booktabs = T,
 	      col.names = c("Supplement type", 
 	      	    	"Median",
@@ -163,13 +163,65 @@ data %>%
           group_by(supp) %>%
           summarise(median = median(len),
                     mean = mean(len)) %>% 
-	kable("simple",
+	kable("latex",
 	      booktabs = T,
 	      col.names = c("Supplement type", 
 	      	    	"Median",
 	      	    	"Mean"), 
 	      align = "cll",
 	      caption = "\\label{tab:cooltable}Mean and Median")
+```
+
+
+````markdown
+`r ''````{r table2}
+para = c("Intercept ($\\beta_0$)",
+         "Parameter 1 ($\\beta_1$)",
+         "Parameter 2 ($\\beta_2$)",
+         "Hurdle probability ($\\theta$)")
+
+tab <- data.frame(
+	Parameter = para,
+	Estimate = c(1.6, 1.2, 6.2, 0.5),
+	Error = c(0.41, 0.02, 0.09, 0.07),
+	CI = c("[0.698, 2.477]",
+	       "[1.123, 1.235]",
+	       "[6.051, 6.423]",
+	       "[0.353, 0.644]"),
+	Rhat = c(rep("1.00", 4)))
+
+kable(tab,
+      "latex",
+      align = "lcccc",
+      booktabs = TRUE,
+      escape = FALSE,
+      caption = "\\label{tab:mathtable}A table with LaTeX Math symbols")
+```
+````
+
+
+```{r}
+para = c("Intercept ($\\beta_0$)",
+         "Parameter 1 ($\\beta_1$)",
+         "Parameter 2 ($\\beta_2$)",
+         "Hurdle probability ($\\theta$)")
+
+tab <- data.frame(
+	Parameter = para,
+	Estimate = c(1.6, 1.2, 6.2, 0.5),
+	Error = c(0.41, 0.02, 0.09, 0.07),
+	CI = c("[0.698, 2.477]",
+	       "[1.123, 1.235]",
+	       "[6.051, 6.423]",
+	       "[0.353, 0.644]"),
+	Rhat = c(rep("1.00", 4)))
+
+kable(tab,
+      "latex",
+      align = "lcccc",
+      booktabs = TRUE,
+      escape = FALSE,
+      caption = "\\label{tab:mathtable}A table with LaTeX Math symbols")
 ```
 
 
