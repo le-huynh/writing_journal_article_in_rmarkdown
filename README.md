@@ -1,7 +1,20 @@
 
-## Lehuynh's personal notes
+## Writing Scientific Manuscript using Rmarkdown
 
-### Overview
+This repository is a comprehensive yet simple example of a fully-fledged scientific project, encompassing every aspect from data to submission. It includes:
+
+- `Data/`: Example dataset used in the project. The raw data serves as the source material but is not directly used for analysis; instead, the analysis relies on the processed data, derived from the raw data through code.
+- `Code/`: Example scripts and code utilized to acquire processed data, create plot, and generate table.
+- `Results/`: Visualizations, tables, and any output derived from the analysis code.
+- `Exploratory/`: Additional materials for exploratory analysis or supplementary findings.
+- `Submission/`: Contains a template manuscript encompassing thorough guidelines for creating the final manuscript, ensuring adherence to publication standards.
+- `Makefile`: Automates the compilation process using [GNU Make](https://www.gnu.org/software/make/), streamlining the generation of the final manuscript.
+
+#### Notes
+- See [`/elsevier/manuscript.Rmd`](https://github.com/le-huynh/writing_journal_article_in_rmarkdown/blob/master/elsevier/manuscript.Rmd) and [`/elsevier/manuscript.pdf`](https://github.com/le-huynh/writing_journal_article_in_rmarkdown/blob/master/elsevier/manuscript.pdf) for notes of Rmarkdown and LaTeX.  
+- Get the manuscript template at the R package [`lehuynh`](https://github.com/le-huynh/lehuynh), template `draft_elsevier`.
+
+#### Repo Overview
 
 	project
 	|- README.md		# the top level description of content (this doc)
@@ -13,9 +26,9 @@
 	| |- manuscript.docx	# docx version of *.Rmd file
 	| |- my_header.tex	# LaTeX header file to format pdf version of manuscript
 	| |- bibliography.bib	# BibTeX formatted references
-	| |- XXXX.csl		# csl file to format references for journal XXX
+	| |- XXXX.csl		# csl file to format references for jour nal XXX
 	| |- *.Rmd		# child documents
-	| +- other files	# used to export .Rmd file to .pdf file
+	| +- other files	# optional files utilized for exporting the .Rmd file to a .pdf format (safe for deletion)
 	|
 	|- data			# raw and primary data, are not changed once created
 	| |- raw/		# raw data, will not be altered
@@ -36,10 +49,11 @@
 	|
 	+- Makefile		# executable Makefile for this study
 
-#### Notes
-- See `/elsevier/manuscript.Rmd` and `/elsevier/manuscript.pdf` for notes of rmarkdown  
-- R package: [lehuynh](https://github.com/le-huynh/lehuynh), template `draft_elsevier`.
 
-----------------------------------------
-- R packages: `patchwork`, `prettydoc`, `xaringan`
+#### Contribution
+Contributions and improvements to this repository are welcome! 
+If you have suggestions, additional templates, or enhancements, feel free to create pull requests or open issues.
+
+#### Acknowledgements
+This project is inspired by the [new_project](https://github.com/SchlossLab/new_project/tree/master) repository created by the Schloss lab and the [`rticles`](https://pkgs.rstudio.com/rticles/) package.
 
